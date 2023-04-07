@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setge() : base("setge", 0x00000000)
         {
-
+            Comment = $"Set if greater or equal (signed)";
         }
     }
 }

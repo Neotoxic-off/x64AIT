@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setle() : base("setle", 0x00000000)
         {
-
+            Comment = $"Set if less or equal";
         }
     }
 }

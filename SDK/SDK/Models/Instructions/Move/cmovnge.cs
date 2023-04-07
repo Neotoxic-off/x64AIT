@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Move
     {
         public cmovnge() : base("cmovnge", (null, null))
         {
-
+            Comment = $"Move if less (signed)";
         }
     }
 }

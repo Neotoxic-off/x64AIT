@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions
     {
         public cwtl() : base("cwtl", null)
         {
-
+            Comment = $"Convert word in %ax to doubleword in %eax (sign-extended)";
         }
     }
 }

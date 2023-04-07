@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Shift
     {
         public sal(): base("sal", (0x00000000, null))
         {
-
+            Comment = $"Left shift {Parameters.destination} by {Parameters.bits} bits";
         }
     }
 }

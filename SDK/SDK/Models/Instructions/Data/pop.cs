@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions
     {
         public pop() : base("pop", null)
         {
-
+            Comment = $"Pop top of stack into {Parameters}";
         }
     }
 }

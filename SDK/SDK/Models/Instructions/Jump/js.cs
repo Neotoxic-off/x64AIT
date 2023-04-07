@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public js() : base("js", null)
         {
-
+            Comment = $"Jump if negative";
         }
     }
 }

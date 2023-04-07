@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jnae() : base("jnae", null)
         {
-
+            Comment = $"Jump if below (unsigned)";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public imul() : base("imul", (null, null))
         {
-
+            Comment = $"Multiply {Parameters.destination} by {Parameters.source}";
         }
     }
 }

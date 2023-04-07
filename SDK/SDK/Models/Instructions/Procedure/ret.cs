@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Procedure
     {
         public ret() : base("ret", null)
         {
-
+            Comment = $"Pop return address from stack and jump there";
         }
     }
 }

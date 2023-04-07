@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Special
     {
         public mulq() : base("mulq", 0x00000000)
         {
-
+            Comment = $"Unsigned full multiply of %rax by {Parameters}, result stored in %rdx:%rax";
         }
     }
 }

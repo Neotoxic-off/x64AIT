@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Unary
     {
         public neg() : base("neg", 0x00000000)
         {
-
+            Comment = $"Arithmetic negation";
         }
     }
 }

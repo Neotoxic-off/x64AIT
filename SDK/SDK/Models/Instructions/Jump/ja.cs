@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public ja() : base("ja", null)
         {
-
+            Comment = $"Jump if above (unsigned)";
         }
     }
 }

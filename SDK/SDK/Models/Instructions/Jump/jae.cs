@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jae() : base("jae", null)
         {
-
+            Comment = $"Jump if above or equal (unsigned)";
         }
     }
 }

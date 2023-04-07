@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Shift
     {
         public sar() : base("sar", (0x00000000, null))
         {
-
+            Comment = $"Arithmetic right shift {Parameters.destination} by {Parameters.bits} bits";
         }
     }
 }

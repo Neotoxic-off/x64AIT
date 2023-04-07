@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public and() : base("and", (null, null))
         {
-
+            Comment = $"Bitwise AND {Parameters.destination} by {Parameters.source}";
         }
     }
 }

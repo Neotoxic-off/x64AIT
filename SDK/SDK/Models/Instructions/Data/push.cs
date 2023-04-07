@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions
     {
         public push() : base("push", null)
         {
-
+            Comment = $"Push {Parameters} onto stack";
         }
     }
 }

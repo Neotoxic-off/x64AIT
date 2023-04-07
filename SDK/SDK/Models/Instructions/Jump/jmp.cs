@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jmp() : base("jmp", null)
         {
-
+            Comment = $"Jump to label/specified location";
         }
     }
 }

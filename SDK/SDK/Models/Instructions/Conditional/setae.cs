@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setae() : base("setae", 0x00000000)
         {
-
+            Comment = $"Set if above or equal (unsigned)";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public add(): base("add", (null, null))
         {
-
+            Comment = $"Add {Parameters.source} to {Parameters.destination}";
         }
     }
 }

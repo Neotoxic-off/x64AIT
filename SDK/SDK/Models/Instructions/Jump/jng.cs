@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jng() : base("jng", null)
         {
-
+            Comment = $"Jump if less or equal";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public or() : base("or", (null, null))
         {
-
+            Comment = $"Bitwise OR {Parameters.destination} by {Parameters.source}";
         }
     }
 }

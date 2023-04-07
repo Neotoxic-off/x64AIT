@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public je() : base("je", null)
         {
-
+            Comment = $"Jump if equal/zero";
         }
     }
 }

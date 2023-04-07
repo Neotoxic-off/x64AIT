@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jna() : base("jna", null)
         {
-
+            Comment = $"Jump if below or equal (unsigned)";
         }
     }
 }

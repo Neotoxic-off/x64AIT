@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Shift
     {
         public shr() : base("shr", (0x00000000, null))
         {
-
+            Comment = $"Logical right shift {Parameters.destination} by {Parameters.bits} bits";
         }
     }
 }

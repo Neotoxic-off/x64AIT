@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Comparison
     {
         public cmp() : base("cmp", (null, null))
         {
-
+            Comment = $"Set condition codes according to {Parameters.item1} - {Parameters.item2}";
         }
     }
 }

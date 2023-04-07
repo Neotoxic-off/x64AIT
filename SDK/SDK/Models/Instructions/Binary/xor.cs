@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public xor() : base("xor", (null, null))
         {
-
+            Comment = $"Bitwise XOR {Parameters.destination} by {Parameters.source}";
         }
     }
 }

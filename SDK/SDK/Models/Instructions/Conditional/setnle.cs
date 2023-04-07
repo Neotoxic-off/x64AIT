@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setnle() : base("setnle", 0x00000000)
         {
-
+            Comment = $"Set if greater or equal (signed)";
         }
     }
 }

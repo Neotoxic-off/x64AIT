@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jns() : base("jns", null)
         {
-
+            Comment = $"Jump if nonnegative";
         }
     }
 }

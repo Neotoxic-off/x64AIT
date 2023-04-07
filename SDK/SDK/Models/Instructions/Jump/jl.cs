@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jl() : base("jl", null)
         {
-
+            Comment = $"Jump if less (signed)";
         }
     }
 }

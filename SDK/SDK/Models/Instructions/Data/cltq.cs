@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions
     {
         public cqto() : base("cqto", null)
         {
-
+            Comment = $"Convert doubleword in %eax to quadword in %rax (sign-extended)";
         }
     }
 }

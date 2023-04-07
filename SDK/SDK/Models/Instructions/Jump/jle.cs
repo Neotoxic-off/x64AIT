@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Jump
     {
         public jle() : base("jle", null)
         {
-
+            Comment = $"Jump if less or equal";
         }
     }
 }

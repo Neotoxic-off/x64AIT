@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public leaq() : base("leaq", (null, null))
         {
-
+            Comment = $"Load effective address of {Parameters.source} into {Parameters.destination}";
         }
     }
 }

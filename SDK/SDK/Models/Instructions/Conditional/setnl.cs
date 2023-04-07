@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setnl() : base("setnl", 0x00000000)
         {
-
+            Comment = $"Set if less (signed)";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Binary
     {
         public sub() : base("sub", (null, null))
         {
-
+            Comment = $"Subtract {Parameters.source} from {Parameters.destination}";
         }
     }
 }

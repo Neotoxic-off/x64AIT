@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Unary
     {
         public dec() : base("dec", 0x00000000)
         {
-
+            Comment = $"Decrement {Parameters} by 1";
         }
     }
 }

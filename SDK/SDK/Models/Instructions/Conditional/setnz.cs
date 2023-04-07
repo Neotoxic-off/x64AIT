@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setnz() : base("setnz", 0x00000000)
         {
-
+            Comment = $"Set if equal/zero";
         }
     }
 }

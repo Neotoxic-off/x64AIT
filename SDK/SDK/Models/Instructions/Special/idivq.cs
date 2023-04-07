@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Special
     {
         public idivq() : base("idivq", 0x00000000)
         {
-
+            Comment = $"Signed divide %rdx:%rax by {Parameters}, quotient stored in %rax, remainder stored in %rdx";
         }
     }
 }

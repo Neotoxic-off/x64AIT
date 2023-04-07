@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions
 {
-    public class cltq : BaseModel<object?>
+    public class clto : BaseModel<object?>
     {
-        public cltq() : base("cltq", null)
+        public clto() : base("clto", null)
         {
-
+            Comment = $"Convert quadword in %rax to octoword in %rdx:%rax";
         }
     }
 }

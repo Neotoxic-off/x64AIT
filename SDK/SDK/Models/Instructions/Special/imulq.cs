@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Special
     {
         public imulq() : base("imulq", 0x00000000)
         {
-
+            Comment = $"Signed full multiply of %rax by {Parameters}, result stored in %rdx:%rax";
         }
     }
 }

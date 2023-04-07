@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Procedure
     {
         public call() : base("call", null)
         {
-
+            Comment = $"Push return address and jump to label/specified location";
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setb() : base("setb", 0x00000000)
         {
-
+            Comment = $"Set if below (unsigned)";
         }
     }
 }

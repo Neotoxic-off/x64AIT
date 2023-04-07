@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Procedure
     {
         public leave() : base("leave", null)
         {
-
+            Comment = $"Set %rsp to %rbp, then pop top of stack into %rbp";
         }
     }
 }

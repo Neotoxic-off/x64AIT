@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setna() : base("setna", 0x00000000)
         {
-
+            Comment = $"Set if below or equal (unsigned)";
         }
     }
 }

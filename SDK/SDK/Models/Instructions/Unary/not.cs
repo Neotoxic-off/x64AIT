@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Unary
     {
         public not() : base("not", 0x00000000)
         {
-
+            Comment = $"Bitwise complement";
         }
     }
 }

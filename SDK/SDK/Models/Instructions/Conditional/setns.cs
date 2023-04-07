@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setns() : base("setns", 0x00000000)
         {
-
+            Comment = $"Set if nonnegative";
         }
     }
 }

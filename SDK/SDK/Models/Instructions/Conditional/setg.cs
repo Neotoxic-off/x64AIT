@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Conditional
     {
         public setg() : base("setg", 0x00000000)
         {
-
+            Comment = $"Set if greater (signed)";
         }
     }
 }
