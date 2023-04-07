@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Move
     {
         public cmovs() : base("cmovs", (null, null))
         {
-
+            Comment = $"Move if negative";
         }
     }
 }

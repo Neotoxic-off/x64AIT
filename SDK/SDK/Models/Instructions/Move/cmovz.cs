@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Move
     {
         public cmovz() : base("cmovz", (null, null))
         {
-
+            Comment = $"Move if equal/zero";
         }
     }
 }
