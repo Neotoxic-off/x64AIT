@@ -54,8 +54,15 @@ namespace x64AIT.Core
 
             foreach (string line in Lines)
             {
-                currentLine = Separator(line);
-                cleanned.Add(TranslateLine(currentLine));
+                if (line.StartsWith("//") == false)
+                {
+                    currentLine = Separator(line);
+                    cleanned.Add(TranslateLine(currentLine));
+                }
+                else
+                {
+                    cleanned.Add(line);
+                }
             }
 
             return (cleanned);
@@ -69,48 +76,53 @@ namespace x64AIT.Core
             dynamic? instruction = null;
             string[]? parameters = null;
             int index = 0;
+            bool comment = false;
 
             Report.Blocks += instructions.Length;
 
             foreach (string block in instructions)
             {
                 cleannedBlock = block;
-                if (IsComment(block) == false && Skip(block) == false && IsOffset(block) == false)
+                if (comment == false)
                 {
-                    instruction = SDK.Models.Instructions.Instructions.GetInstruction(block);
-                    if (instruction != null)
+                    comment = IsComment(block);
+                    if (Skip(block) == false && IsOffset(block) == false)
                     {
-                        architecture.Instruction = instruction;
-                        architecture.InstructionIndex = index;
-                        Report.Instructions++;
-                    }
-                    else
-                    {
-                        parameters = Parameters(block);
-                        if (parameters != null && architecture.Instruction != null)
+                        instruction = SDK.Models.Instructions.Instructions.GetInstruction(block);
+                        if (instruction != null)
                         {
-                            if (architecture.Instruction.Source != null && architecture.Instruction.Destination != null)
+                            architecture.Instruction = instruction;
+                            architecture.InstructionIndex = index;
+                            Report.Instructions++;
+                        }
+                        else
+                        {
+                            parameters = Parameters(block);
+                            if (parameters != null && architecture.Instruction != null)
                             {
-                                architecture.Instruction.Source = parameters[0];
-                                architecture.Instruction.Destination = parameters[1];
+                                if (architecture.Instruction.Source != null && architecture.Instruction.Destination != null)
+                                {
+                                    architecture.Instruction.Source = parameters[0].Trim();
+                                    architecture.Instruction.Destination = parameters[1].Trim();
+                                }
                             }
                         }
                     }
+                    buffer.Add(cleannedBlock);
                 }
-                buffer.Add(cleannedBlock);
+                
                 index++;
             }
             if (architecture.Instruction != null)
             {
-                //if (architecture.InstructionIndex + 2 < instructions.Length && architecture.Instruction.Source == null && architecture.Instruction.Destination == null)
-                //{
-                //    architecture.Instruction.Source = instructions[architecture.InstructionIndex + 1];
-                //    architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
-                //}
+                if (architecture.InstructionIndex + 2 < instructions.Length && architecture.Instruction.Source == null && architecture.Instruction.Destination == null)
+                {
+                    architecture.Instruction.Source = instructions[architecture.InstructionIndex + 1];
+                    architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
+                }
                 architecture.Instruction.Render();
+                buffer.Add($"// [ x64AIT ] {architecture.Instruction?.Comment}");
             }
-
-            buffer.Add($"// {architecture.Instruction?.Comment}");
 
             return (string.Join(" ", buffer));
         }
