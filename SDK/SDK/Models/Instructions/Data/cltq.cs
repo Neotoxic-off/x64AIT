@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDK.Models.Instructions
+namespace SDK.Models.Instructions.Data
 {
-    public class cqto : BaseModel<object?>
+    public class cltq : BaseModel<(object? source, object? destination)>
     {
-        public cqto() : base("cqto", null)
+        public cltq() : base("cqto", (null, null))
         {
             Comment = $"Convert doubleword in %eax to quadword in %rax (sign-extended)";
         }

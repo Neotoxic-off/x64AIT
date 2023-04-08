@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class je : BaseModel<object?>
+    public class je : BaseModel<(object? source, object? destination)>
     {
-        public je() : base("je", null)
+        public je() : base("je", (null, null))
         {
             Comment = $"Jump if equal/zero";
         }

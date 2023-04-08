@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Procedure
 {
-    public class call : BaseModel<object?>
+    public class call : BaseModel<(object? source, object? destination)>
     {
-        public call() : base("call", null)
+        public call() : base("call", (null, null))
         {
             Comment = $"Push return address and jump to label/specified location";
         }

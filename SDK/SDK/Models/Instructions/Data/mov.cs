@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDK.Models.Instructions
+namespace SDK.Models.Instructions.Data
 {
     public class mov: BaseModel<(object? source, object? destination)>
     {

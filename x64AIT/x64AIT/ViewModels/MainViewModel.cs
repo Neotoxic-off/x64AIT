@@ -21,18 +21,11 @@ namespace x64AIT.ViewModels
     {
         public SettingsViewModel Settings { get; set; }
         public LoggerViewModel Logger { get; set; }
+        public SDKViewModel SDK { get; set; }
         private VistaFolderBrowserDialog FolderSelector { get; set; }
-
-        public DelegateCommand AddLibraryCommand { get; set; }
-        public DelegateCommand RightArrowCommand { get; set; }
-        public DelegateCommand LeftArrowCommand { get; set; }
-        public DelegateCommand SendCommand { get; set; }
         public DelegateCommand GithubCommand { get; set; }
         public DelegateCommand DiscordCommand { get; set; }
         public DelegateCommand CodeCommand { get; set; }
-        public DelegateCommand GetSelectedCommand { get; set; }
-        public DelegateCommand WatchCommand { get; set; }
-        public DelegateCommand ConfigurationCommand { get; set; }
 
         public MainViewModel()
         {
@@ -58,6 +51,7 @@ namespace x64AIT.ViewModels
             Logger.Record("loading models");
 
             Settings = new SettingsViewModel();
+            SDK = new SDKViewModel();
 
             Logger.Record("models loaded");
         }

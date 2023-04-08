@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDK.Models.Instructions
+namespace SDK.Models.Instructions.Data
 {
-    public class cwtl: BaseModel<object?>
+    public class cwtl: BaseModel<(object? source, object? destination)>
     {
-        public cwtl() : base("cwtl", null)
+        public cwtl() : base("cwtl", (null, null))
         {
             Comment = $"Convert word in %ax to doubleword in %eax (sign-extended)";
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jnbe : BaseModel<object?>
+    public class jnbe : BaseModel<(object? source, object? destination)>
     {
-        public jnbe() : base("jnbe", null)
+        public jnbe() : base("jnbe", (null, null))
         {
             Comment = $"Jump if above (unsigned)";
         }

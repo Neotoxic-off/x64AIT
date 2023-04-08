@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setle : BaseModel<UInt64>
+    public class setle : BaseModel<(object? source, object? destination)>
     {
-        public setle() : base("setle", 0x00000000)
+        public setle() : base("setle", (0x00000000, null))
         {
             Comment = $"Set if less or equal";
         }

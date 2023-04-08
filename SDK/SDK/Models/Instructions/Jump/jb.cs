@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jb : BaseModel<object?>
+    public class jb : BaseModel<(object? source, object? destination)>
     {
-        public jb() : base("jb", null)
+        public jb() : base("jb", (null, null))
         {
             Comment = $"Jump if below (unsigned)";
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setnl : BaseModel<UInt64>
+    public class setnl : BaseModel<(object? source, object? destination)>
     {
-        public setnl() : base("setnl", 0x00000000)
+        public setnl() : base("setnl", (0x00000000, null))
         {
             Comment = $"Set if less (signed)";
         }

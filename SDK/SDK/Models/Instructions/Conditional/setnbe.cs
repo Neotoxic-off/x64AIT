@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setnbe : BaseModel<UInt64>
+    public class setnbe : BaseModel<(object? source, object? destination)>
     {
-        public setnbe() : base("setnbe", 0x00000000)
+        public setnbe() : base("setnbe", (0x00000000, null))
         {
             Comment = $"Set if above (unsigned)";
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setns : BaseModel<UInt64>
+    public class setns : BaseModel<(object? source, object? destination)>
     {
-        public setns() : base("setns", 0x00000000)
+        public setns() : base("setns", (0x00000000, null))
         {
             Comment = $"Set if nonnegative";
         }

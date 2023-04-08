@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setne : BaseModel<UInt64>
+    public class setne : BaseModel<(object? source, object? destination)>
     {
-        public setne() : base("setne", 0x00000000)
+        public setne() : base("setne", (0x00000000, null))
         {
             Comment = $"Set if not equal/nonzero";
         }
