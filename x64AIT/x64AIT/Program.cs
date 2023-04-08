@@ -16,9 +16,8 @@ namespace x64AIT
             Program Program = new Program();
 
             Program.Logger = new Logger.Logger();
-            string[] bypass = new string[] { "dump.txt" };
             Program.Setup();
-            Program.Load(bypass);
+            Program.Load(args);
             Program.Launch();
             Console.ReadLine();
         }
@@ -32,6 +31,12 @@ namespace x64AIT
                 Logger?.Log("information", $"loading file {Configuration?.Parameters?[0]}");
                 Logger?.Log("action", $"translating");
                 Result = Translator?.Translate();
+                Logger?.Log("item", new string[]
+                {
+                    $"Lines: {Translator?.Report?.Lines}",
+                    $"Instructions: {Translator?.Report?.Instructions}",
+                    $"Blocks: {Translator?.Report?.Blocks}",
+                });
                 Logger?.Log("information", $"translation complete");
 
                 Logger?.Log("action", $"saving");

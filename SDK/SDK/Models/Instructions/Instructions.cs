@@ -136,7 +136,7 @@ namespace SDK.Models.Instructions
                 {
                     if (item.Name == instruction)
                     {
-                        return (item);
+                        return ((BaseModel?)item.Clone());
                     }
                 }
             }

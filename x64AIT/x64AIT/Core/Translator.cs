@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SDK;
+using x64AIT.Models;
 
 namespace x64AIT.Core
 {
@@ -81,9 +82,9 @@ namespace x64AIT.Core
                     {
                         architecture.Instruction = instruction;
                         architecture.InstructionIndex = index;
-                        
-                    } 
-                    else if(index == architecture.InstructionIndex + 1)
+                        Report.Instructions++;
+                    }
+                    else
                     {
                         parameters = Parameters(block);
                         if (parameters != null && architecture.Instruction != null)
@@ -101,11 +102,11 @@ namespace x64AIT.Core
             }
             if (architecture.Instruction != null)
             {
-                if (architecture.InstructionIndex + 2 < instructions.Length && architecture.Instruction.Source == null && architecture.Instruction.Destination == null)
-                {
-                    architecture.Instruction.Source = instructions[architecture.InstructionIndex + 1];
-                    architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
-                }
+                //if (architecture.InstructionIndex + 2 < instructions.Length && architecture.Instruction.Source == null && architecture.Instruction.Destination == null)
+                //{
+                //    architecture.Instruction.Source = instructions[architecture.InstructionIndex + 1];
+                //    architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
+                //}
                 architecture.Instruction.Render();
             }
 

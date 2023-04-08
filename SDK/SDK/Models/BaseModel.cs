@@ -51,6 +51,11 @@ namespace SDK.Models
             this.Comment = Comment.Replace(PlaceHolderSource, $"{Source}").Replace(PlaceHolderDestination, $"{Destination}");
         }
 
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
         protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, newValue) == false)
