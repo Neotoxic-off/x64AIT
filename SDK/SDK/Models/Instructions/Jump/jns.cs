@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jns : BaseModel<(object? source, object? destination)>
+    public class jns : BaseModel
     {
-        public jns() : base("jns", (null, null))
+        public jns(object? source, object? destination) :base("jns", source, destination)
         {
             Comment = $"Jump if nonnegative";
         }

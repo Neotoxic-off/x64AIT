@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Shift
 {
-    public class shl : BaseModel<(UInt64 bits, object? destination)>
+    public class shl : BaseModel
     {
-        public shl() : base("shl", (0x00000000, null))
+        public shl(object? source, object? destination) :base("shl", source, destination)
         {
-            Comment = $"Left shift {Parameters.destination} by {Parameters.bits} bits";
+            Comment = $"Left shift {Destination} by {Source} bits";
         }
     }
 }

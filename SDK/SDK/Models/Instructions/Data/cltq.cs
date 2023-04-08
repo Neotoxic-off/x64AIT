@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Data
 {
-    public class cltq : BaseModel<(object? source, object? destination)>
+    public class cltq : BaseModel
     {
-        public cltq() : base("cqto", (null, null))
+        public cltq(object? source, object? destination) :base("cqto", source, destination)
         {
             Comment = $"Convert doubleword in %eax to quadword in %rax (sign-extended)";
         }

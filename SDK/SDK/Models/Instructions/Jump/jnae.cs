@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jnae : BaseModel<(object? source, object? destination)>
+    public class jnae : BaseModel
     {
-        public jnae() : base("jnae", (null, null))
+        public jnae(object? source, object? destination) :base("jnae", source, destination)
         {
             Comment = $"Jump if below (unsigned)";
         }

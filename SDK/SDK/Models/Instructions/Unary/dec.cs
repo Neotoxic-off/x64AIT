@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Unary
 {
-    public class dec : BaseModel<(object? source, object? destination)>
+    public class dec : BaseModel
     {
-        public dec() : base("dec", (0x00000000, null))
+        public dec(object? source, object? destination) :base("dec", source, destination)
         {
-            Comment = $"Decrement {Parameters} by 1";
+            Comment = $"Decrement {Source} by 1";
         }
     }
 }

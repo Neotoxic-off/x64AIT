@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Shift
 {
-    public class sar : BaseModel<(UInt64 bits, object? destination)>
+    public class sar : BaseModel
     {
-        public sar() : base("sar", (0x00000000, null))
+        public sar(object? source, object? destination) :base("sar", source, destination)
         {
-            Comment = $"Arithmetic right shift {Parameters.destination} by {Parameters.bits} bits";
+            Comment = $"Arithmetic right shift {Destination} by {Source} bits";
         }
     }
 }

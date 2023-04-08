@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Unary
 {
-    public class inc : BaseModel<(object? source, object? destination)>
+    public class inc : BaseModel
     {
-        public inc() : base("inc", (0x00000000, null))
+        public inc(object? source, object? destination) :base("inc", source, destination)
         {
-            Comment = $"Increment {Parameters} by 1";
+            Comment = $"Increment {Source} by 1";
         }
     }
 }

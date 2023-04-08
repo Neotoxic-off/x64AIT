@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Move
 {
-    public class cmovl : BaseModel<(object? source, object? destination)>
+    public class cmovl : BaseModel
     {
-        public cmovl() : base("cmovl", (null, null))
+        public cmovl(object? source, object? destination) :base("cmovl", source, destination)
         {
             Comment = $"Move if less (signed)";
         }

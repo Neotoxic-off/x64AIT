@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class xor : BaseModel<(object? source, object? destination)>
+    public class xor : BaseModel
     {
-        public xor() : base("xor", (null, null))
+        public xor(object? source, object? destination) :base("xor", source, destination)
         {
-            Comment = $"Bitwise XOR {Parameters.destination} by {Parameters.source}";
+            Comment = $"Bitwise XOR {Destination} by {Source}";
         }
     }
 }

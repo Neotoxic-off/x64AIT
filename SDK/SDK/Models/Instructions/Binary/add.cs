@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class add : BaseModel<(object? source, object? destination)>
+    public class add : BaseModel
     {
-        public add(): base("add", (null, null))
+        public add(object? source, object? destination) : base("add", source, destination)
         {
-            Comment = $"Add {Parameters.source} to {Parameters.destination}";
+            Comment = $"Add {Source} to {Destination}";
         }
     }
 }

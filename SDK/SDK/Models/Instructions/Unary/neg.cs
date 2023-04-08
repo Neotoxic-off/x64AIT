@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Unary
 {
-    public class neg : BaseModel<(object? source, object? destination)>
+    public class neg : BaseModel
     {
-        public neg() : base("neg", (0x00000000, null))
+        public neg(object? source, object? destination) :base("neg", source, destination)
         {
             Comment = $"Arithmetic negation";
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setna : BaseModel<(object? source, object? destination)>
+    public class setna : BaseModel
     {
-        public setna() : base("setna", (0x00000000, null))
+        public setna(object? source, object? destination) :base("setna", source, destination)
         {
             Comment = $"Set if below or equal (unsigned)";
         }

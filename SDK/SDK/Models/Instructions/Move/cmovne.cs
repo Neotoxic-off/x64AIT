@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Move
 {
-    public class cmovne : BaseModel<(object? source, object? destination)>
+    public class cmovne : BaseModel
     {
-        public cmovne() : base("cmovne", (null, null))
+        public cmovne(object? source, object? destination) :base("cmovne", source, destination)
         {
             Comment = $"Move if not equal/nonzero";
         }

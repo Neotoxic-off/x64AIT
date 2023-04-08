@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Data
 {
-    public class push: BaseModel<(object? source, object? destination)>
+    public class push: BaseModel
     {
-        public push() : base("push", (null, null))
+        public push(object? source, object? destination) :base("push", source, destination)
         {
-            Comment = $"Push {Parameters} onto stack";
+            Comment = $"Push {Source} onto stack";
         }
     }
 }

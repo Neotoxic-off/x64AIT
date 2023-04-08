@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jnl : BaseModel<(object? source, object? destination)>
+    public class jnl : BaseModel
     {
-        public jnl() : base("jnl", (null, null))
+        public jnl(object? source, object? destination) :base("jnl", source, destination)
         {
             Comment = $"Jump if greater or equal (signed)";
         }

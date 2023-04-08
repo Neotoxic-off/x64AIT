@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Procedure
 {
-    public class leave : BaseModel<(object? source, object? destination)>
+    public class leave : BaseModel
     {
-        public leave() : base("leave", (null, null))
+        public leave(object? source, object? destination) :base("leave", source, destination)
         {
             Comment = $"Set %rsp to %rbp, then pop top of stack into %rbp";
         }

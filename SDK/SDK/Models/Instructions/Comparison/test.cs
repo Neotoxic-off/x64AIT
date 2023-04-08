@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Comparison
 {
-    public class test : BaseModel<(object? item1, object? item2)>
+    public class test : BaseModel
     {
-        public test() : base("test", (null, null))
+        public test(object? source, object? destination) :base("test", source, destination)
         {
-            Comment = $"Set condition codes according to {Parameters.item1} & {Parameters.item2}";
+            Comment = $"Set condition codes according to {Source} & {Destination}";
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Data
 {
-    public class cqto : BaseModel<(object? source, object? destination)>
+    public class cqto : BaseModel
     {
-        public cqto() : base("cqto", (null, null))
+        public cqto(object? source, object? destination) :base("cqto", source, destination)
         {
             Comment = $"Convert quadword in %rax to octoword in %rdx:%rax";
         }

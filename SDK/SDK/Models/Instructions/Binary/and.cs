@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class and : BaseModel<(object? source, object? destination)>
+    public class and : BaseModel
     {
-        public and() : base("and", (null, null))
+        public and(object? source, object? destination) : base("and", source, destination)
         {
-            Comment = $"Bitwise AND {Parameters.destination} by {Parameters.source}";
+            Comment = $"Bitwise AND {Destination} by {Source}";
         }
     }
 }

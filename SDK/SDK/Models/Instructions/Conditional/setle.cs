@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setle : BaseModel<(object? source, object? destination)>
+    public class setle : BaseModel
     {
-        public setle() : base("setle", (0x00000000, null))
+        public setle(object? source, object? destination) :base("setle", source, destination)
         {
             Comment = $"Set if less or equal";
         }

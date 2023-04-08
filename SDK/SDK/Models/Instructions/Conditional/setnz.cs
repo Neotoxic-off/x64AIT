@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setnz : BaseModel<(object? source, object? destination)>
+    public class setnz : BaseModel
     {
-        public setnz() : base("setnz", (0x00000000, null))
+        public setnz(object? source, object? destination) :base("setnz", source, destination)
         {
             Comment = $"Set if equal/zero";
         }

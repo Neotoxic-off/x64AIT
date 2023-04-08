@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class js : BaseModel<(object? source, object? destination)>
+    public class js : BaseModel
     {
-        public js() : base("js", (null, null))
+        public js(object? source, object? destination) :base("js", source, destination)
         {
             Comment = $"Jump if negative";
         }

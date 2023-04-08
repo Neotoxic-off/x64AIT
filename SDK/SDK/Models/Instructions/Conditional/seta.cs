@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class seta : BaseModel<(UInt64 source, object? destination)>
+    public class seta : BaseModel
     {
-        public seta() : base("seta", (0x00000000, null))
+        public seta(object? source, object? destination) :base("seta", source, destination)
         {
             Comment = $"Set if above (unsigned)";
         }

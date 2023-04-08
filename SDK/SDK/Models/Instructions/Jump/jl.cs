@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jl : BaseModel<(object? source, object? destination)>
+    public class jl : BaseModel
     {
-        public jl() : base("jl", (null, null))
+        public jl(object? source, object? destination) :base("jl", source, destination)
         {
             Comment = $"Jump if less (signed)";
         }

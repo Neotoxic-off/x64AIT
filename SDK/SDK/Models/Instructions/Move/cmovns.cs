@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Move
 {
-    public class cmovns : BaseModel<(object? source, object? destination)>
+    public class cmovns : BaseModel
     {
-        public cmovns() : base("cmovns", (null, null))
+        public cmovns(object? source, object? destination) :base("cmovns", source, destination)
         {
             Comment = $"Move if nonnegative";
         }

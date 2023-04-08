@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Special
 {
-    public class divq : BaseModel<(object? source, object? destination)>
+    public class divq : BaseModel
     {
-        public divq() : base("divq", (0x00000000, null))
+        public divq(object? source, object? destination) :base("divq", source, destination)
         {
-            Comment = $"Unsigned divide %rdx:%rax by {Parameters}, quotient stored in %rax, remainder stored in %rdx";
+            Comment = $"Unsigned divide %rdx:%rax by {Source}, quotient stored in %rax, remainder stored in %rdx";
         }
     }
 }

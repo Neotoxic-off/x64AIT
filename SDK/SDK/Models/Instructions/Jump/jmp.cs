@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Jump
 {
-    public class jmp : BaseModel<(object? source, object? destination)>
+    public class jmp : BaseModel
     {
-        public jmp() : base("jmp", (null, null))
+        public jmp(object? source, object? destination) :base("jmp", source, destination)
         {
             Comment = $"Jump to label/specified location";
         }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class or : BaseModel<(object? source, object? destination)>
+    public class or : BaseModel
     {
-        public or() : base("or", (null, null))
+        public or(object? source, object? destination) :base("or", source, destination)
         {
-            Comment = $"Bitwise OR {Parameters.destination} by {Parameters.source}";
+            Comment = $"Bitwise OR {Destination} by {Source}";
         }
     }
 }

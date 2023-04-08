@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setl : BaseModel<(object? source, object? destination)>
+    public class setl : BaseModel
     {
-        public setl() : base("setl", (0x00000000, null))
+        public setl(object? source, object? destination) :base("setl", source, destination)
         {
             Comment = $"Set if less (signed)";
         }

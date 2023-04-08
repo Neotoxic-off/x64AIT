@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class sub : BaseModel<(object? source, object? destination)>
+    public class sub : BaseModel
     {
-        public sub() : base("sub", (null, null))
+        public sub(object? source, object? destination) :base("sub", source, destination)
         {
-            Comment = $"Subtract {Parameters.source} from {Parameters.destination}";
+            Comment = $"Subtract {Source} from {Destination}";
         }
     }
 }

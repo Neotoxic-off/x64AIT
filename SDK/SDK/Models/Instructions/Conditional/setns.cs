@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Conditional
 {
-    public class setns : BaseModel<(object? source, object? destination)>
+    public class setns : BaseModel
     {
-        public setns() : base("setns", (0x00000000, null))
+        public setns(object? source, object? destination) :base("setns", source, destination)
         {
             Comment = $"Set if nonnegative";
         }

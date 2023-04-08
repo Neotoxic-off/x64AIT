@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Special
 {
-    public class mulq : BaseModel<(object? source, object? destination)>
+    public class mulq : BaseModel
     {
-        public mulq() : base("mulq", (0x00000000, null))
+        public mulq(object? source, object? destination) :base("mulq", source, destination)
         {
-            Comment = $"Unsigned full multiply of %rax by {Parameters}, result stored in %rdx:%rax";
+            Comment = $"Unsigned full multiply of %rax by {Source}, result stored in %rdx:%rax";
         }
     }
 }

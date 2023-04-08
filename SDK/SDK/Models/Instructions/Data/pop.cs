@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Data
 {
-    public class pop: BaseModel<(object? source, object? destination)>
+    public class pop: BaseModel
     {
-        public pop() : base("pop", (null, null))
+        public pop(object? source, object? destination) :base("pop", source, destination)
         {
-            Comment = $"Pop top of stack into {Parameters}";
+            Comment = $"Pop top of stack into {Source}";
         }
     }
 }

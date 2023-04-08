@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Move
 {
-    public class cmovbe : BaseModel<(object? source, object? destination)>
+    public class cmovbe : BaseModel
     {
-        public cmovbe() : base("cmovbe", (null, null))
+        public cmovbe(object? source, object? destination) :base("cmovbe", source, destination)
         {
             Comment = $"Move if below or equal (unsigned)";
         }

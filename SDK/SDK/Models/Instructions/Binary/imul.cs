@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class imul : BaseModel<(object? source, object? destination)>
+    public class imul : BaseModel
     {
-        public imul() : base("imul", (null, null))
+        public imul(object? source, object? destination) : base("imul", source, destination)
         {
-            Comment = $"Multiply {Parameters.destination} by {Parameters.source}";
+            Comment = $"Multiply {Destination} by {Source}";
         }
     }
 }

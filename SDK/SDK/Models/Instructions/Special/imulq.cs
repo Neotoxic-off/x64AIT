@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Special
 {
-    public class imulq : BaseModel<(object? source, object? destination)>
+    public class imulq : BaseModel
     {
-        public imulq() : base("imulq", (0x00000000, null))
+        public imulq(object? source, object? destination) :base("imulq", source, destination)
         {
-            Comment = $"Signed full multiply of %rax by {Parameters}, result stored in %rdx:%rax";
+            Comment = $"Signed full multiply of %rax by {Source}, result stored in %rdx:%rax";
         }
     }
 }

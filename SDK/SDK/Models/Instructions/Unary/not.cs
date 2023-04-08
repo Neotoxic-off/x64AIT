@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Unary
 {
-    public class not : BaseModel<(object? source, object? destination)>
+    public class not : BaseModel
     {
-        public not() : base("not", (0x00000000, null))
+        public not(object? source, object? destination) :base("not", source, destination)
         {
             Comment = $"Bitwise complement";
         }
