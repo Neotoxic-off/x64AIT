@@ -1,7 +1,46 @@
 # x64AIT
 🧛‍♂️ x64 ASM Instructions Translator
 
-## Before
+## Table of contents
+
+1. [Explanations](#1-explanations)
+2. [State of the project](#2-state-of-the-project)
+    1. [Implemented](#1-implemented)
+    2. [Comming](#2-comming)
+3. [Usage](#2-usage)
+
+## 1. Explanations
+
+<p>
+    Welcome on x64AIT
+    The goal of this project is to help people to reverse & debug binaries
+</p>
+
+## 2. State of the project
+
+<p>
+    Currently the project is an external tool where user drags and drop the assembly
+    file to x64AIT
+    It produces a `.ait` file where the translation is saved
+</p>
+
+### 1. Implemented
+
+- [x] Comment all the lines to explain it
+
+### 2. Comming
+
+- [ ] Find the correct source & destination of the instruction
+- [ ] Add registers information
+- [ ] Rewrite the ASM instruction as a C code
+
+## 3. Usage
+
+- Drag and drop the ASM file to the binary `x64AIT.exe`
+- The translated file will be the path of the file ending with `.ait`
+
+### Example
+### Before
 ```ASM
 00007FF8D4A0CEA5 | EB 00                    | jmp ntdll.7FF8D4A0CEA7                                        |
 00007FF8D4A0CEA7 | 48:83C4 38               | add rsp,38                                                    |
@@ -109,7 +148,7 @@
 00007FF8D4A0D04B | 8BDF                     | mov ebx,edi                                                   |
 ```
 
-## After
+### After
 ```ASM
 00007FF8D4A0CEA5 | EB 00                    | jmp ntdll.7FF8D4A0CEA7                                        | // [ x64AIT ] Jump to label/specified location
 00007FF8D4A0CEA7 | 48:83C4 38               | add rsp,38                                                    | // [ x64AIT ] Add rsp to 38
