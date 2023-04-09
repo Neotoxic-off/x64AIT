@@ -8,7 +8,7 @@ namespace x64AIT.Models
 {
     public class Architecture
     {
-        public SDK.Models.BaseModel Instruction { get; set; }
+        public SDK.Models.Instructions.BaseModel Instruction { get; set; }
         public int InstructionIndex { get; set; }
     }
 }

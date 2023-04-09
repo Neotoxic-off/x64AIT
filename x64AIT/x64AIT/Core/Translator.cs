@@ -121,7 +121,7 @@ namespace x64AIT.Core
                     architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
                 }
                 architecture.Instruction.Render();
-                buffer.Add($"// [ x64AIT ] {architecture.Instruction?.Comment}");
+                buffer.Add($"// [x64AIT] {architecture.Instruction?.Comment}");
             }
 
             return (string.Join(" ", buffer));

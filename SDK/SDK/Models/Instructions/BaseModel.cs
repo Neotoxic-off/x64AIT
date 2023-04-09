@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDK.Models
+namespace SDK.Models.Instructions
 {
     public class BaseModel
     {
@@ -36,8 +36,8 @@ namespace SDK.Models
             set { SetProperty(ref _comment, value); }
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        private static string PlaceHolderSource = "EMPTY_SOURCE";
-        private static string PlaceHolderDestination = "EMPTY_DESTINATION";
+        public static string PlaceHolderSource = "EMPTY_SOURCE";
+        public static string PlaceHolderDestination = "EMPTY_DESTINATION";
 
         public BaseModel(string Name, object? Source, object? Destination)
         {
@@ -48,12 +48,12 @@ namespace SDK.Models
 
         public void Render()
         {
-            this.Comment = Comment.Replace(PlaceHolderSource, $"{Source}").Replace(PlaceHolderDestination, $"{Destination}");
+            Comment = Comment.Replace(PlaceHolderSource, $"{Source}").Replace(PlaceHolderDestination, $"{Destination}");
         }
 
-        public object Clone()
+        public BaseModel? Clone()
         {
-            return this.MemberwiseClone();
+            return ((BaseModel?)MemberwiseClone());
         }
 
         protected bool SetProperty<T>(ref T field, T newValue, [CallerMemberName] string propertyName = null)
@@ -63,9 +63,9 @@ namespace SDK.Models
                 field = newValue;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-                return (true);
+                return true;
             }
-            return (false);
+            return false;
         }
     }
 }
