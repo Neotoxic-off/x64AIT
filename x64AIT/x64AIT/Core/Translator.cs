@@ -12,6 +12,7 @@ namespace x64AIT.Core
     public class Translator
     {
         public int TotalInstructions { get; set; }
+        public int TotalRegisters { get; set; }
         public string[]? Lines { get; set; }
         public Models.Report? Report { get; set; }
         private Logger.Logger Logger { get; set; }
@@ -19,6 +20,7 @@ namespace x64AIT.Core
         public Translator(Logger.Logger logger)
         {
             TotalInstructions = SDK.Models.Instructions.Instructions.CountInstructions();
+            TotalRegisters = SDK.Models.Registers.Registers.CountRegisters();
             Report = new Models.Report();
             Logger = logger;
         }
@@ -77,6 +79,7 @@ namespace x64AIT.Core
             string[]? parameters = null;
             int index = 0;
             bool comment = false;
+            List<Register?> registers = Registers.Search(instructions);
 
             Report.Blocks += instructions.Length;
 
@@ -85,27 +88,17 @@ namespace x64AIT.Core
                 cleannedBlock = block;
                 if (comment == false)
                 {
-                    comment = IsComment(block);
-                    if (Skip(block) == false && IsOffset(block) == false)
+                    comment = Tools.Comment.IsComment(block);
+                    if (Tools.Skip.CanSkip(block) == false && Tools.Offset.IsOffset(block) == false)
                     {
                         instruction = SDK.Models.Instructions.Instructions.GetInstruction(block);
                         if (instruction != null)
                         {
                             architecture.Instruction = instruction;
                             architecture.InstructionIndex = index;
+                            architecture.Instruction.Source = registers?[0]?.Value;
+                            architecture.Instruction.Destination = registers?[1]?.Value;
                             Report.Instructions++;
-                        }
-                        else
-                        {
-                            parameters = Parameters(block);
-                            if (parameters != null && architecture.Instruction != null)
-                            {
-                                if (architecture.Instruction.Source != null && architecture.Instruction.Destination != null)
-                                {
-                                    architecture.Instruction.Source = parameters[0].Trim();
-                                    architecture.Instruction.Destination = parameters[1].Trim();
-                                }
-                            }
                         }
                     }
                     buffer.Add(cleannedBlock);
@@ -115,63 +108,12 @@ namespace x64AIT.Core
             }
             if (architecture.Instruction != null)
             {
-                if (architecture.InstructionIndex + 2 < instructions.Length && architecture.Instruction.Source == null && architecture.Instruction.Destination == null)
-                {
-                    architecture.Instruction.Source = instructions[architecture.InstructionIndex + 1];
-                    architecture.Instruction.Destination = instructions[architecture.InstructionIndex + 2];
-                }
+                
                 architecture.Instruction.Render();
-                buffer.Add($"// [x64AIT] {architecture.Instruction?.Comment}");
+                buffer.Add($"; [x64AIT] {architecture.Instruction?.Comment}");
             }
 
             return (string.Join(" ", buffer));
-        }
-
-        public bool IsOffset(string instruction)
-        {
-            if (instruction != null)
-            {
-                if (instruction.Length == 16)
-                {
-                    return (IsHex(instruction));
-                }
-            }
-
-            return (false);
-        }
-
-        public bool IsHex(string instruction)
-        {
-            string characters = "0123456789ABCDEF";
-
-            if (instruction != null)
-            {
-                foreach (char c in instruction)
-                {
-                    if (characters.Contains(c) == false)
-                    {
-                        return (false);
-                    }
-                }
-                return (true);
-            }
-            return (false);
-        }
-
-        public bool Skip(string instruction)
-        {
-            if (instruction != null)
-            {
-                return (instruction.Length < 2);
-            }
-            return (false);
-        }
-
-        public bool IsComment(string instruction)
-        {
-            string comment = "//";
-
-            return (instruction.StartsWith(comment));
         }
 
         public string[]? Separator(string line)

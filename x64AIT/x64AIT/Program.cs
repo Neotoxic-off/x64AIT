@@ -101,7 +101,8 @@ namespace x64AIT
             Translator = new Translator(Logger);
             Logger?.Log("item", new string[]
             {
-                $"Total Instructions: {Translator.TotalInstructions}"
+                $"Instructions: {Translator.TotalInstructions}",
+                $"Registers: {Translator.TotalRegisters}"
             });
             Logger?.Log("information", "Translator loaded");
         }

@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Tools\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="SDK">
       <HintPath>..\..\SDK\SDK\bin\Release\net7.0\SDK.dll</HintPath>
     </Reference>

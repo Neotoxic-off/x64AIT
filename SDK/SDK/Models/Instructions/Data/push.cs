@@ -8,9 +8,9 @@ namespace SDK.Models.Instructions.Data
 {
     public class push: BaseModel
     {
-        public push(object? source, object? destination) :base("push", source, destination)
+        public push(object? source, object? destination) : base("push", source, destination)
         {
-            Comment = $"Push {Source} onto stack";
+            Comment = $"Push {source} onto stack";
         }
     }
 }

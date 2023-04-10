@@ -10,7 +10,7 @@ namespace SDK.Models.Instructions.Data
     {
         public pop(object? source, object? destination) :base("pop", source, destination)
         {
-            Comment = $"Pop top of stack into {Source}";
+            Comment = $"Pop top of stack into {source}";
         }
     }
 }

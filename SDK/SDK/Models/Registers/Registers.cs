@@ -84,13 +84,13 @@ namespace SDK.Models.Registers
             return (ASMRegisters.Count());
         }
 
-        public static BaseModel? GetRegisters(string registers)
+        public static BaseModel? GetRegister(string register)
         {
-            if (IsValidInstruction(registers) == true)
+            if (IsValidRegister(register) == true)
             {
                 foreach (BaseModel? item in ASMRegisters)
                 {
-                    if (item.Name == registers)
+                    if (item.Name == register)
                     {
                         return (item);
                     }
@@ -100,11 +100,11 @@ namespace SDK.Models.Registers
             return (null);
         }
 
-        public static bool IsValidInstruction(string registers)
+        public static bool IsValidRegister(string register)
         {
             foreach (BaseModel item in ASMRegisters)
             {
-                if (item.Name == registers)
+                if (item.Name == register)
                 {
                     return (true);
                 }
@@ -113,9 +113,9 @@ namespace SDK.Models.Registers
             return (false);
         }
 
-        public static int GetRegisterSize(string registers)
+        public static int GetRegisterSize(string register)
         {
-            BaseModel? result = GetRegisters(registers);
+            BaseModel? result = GetRegister(register);
 
             if (result != null)
             {
