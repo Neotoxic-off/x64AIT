@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Comparison
 {
     public class test : BaseModel
     {
-        public test(object? source, object? destination) :base("test", source, destination)
+        public test() :base("test")
         {
-            Comment = $"Set condition codes according to {Source} & {Destination}";
+            Comment = new Comment()
+            {
+                Start = "Set condition codes according to",
+                Between = "&",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

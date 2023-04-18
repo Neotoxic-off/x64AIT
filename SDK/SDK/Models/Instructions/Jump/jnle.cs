@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     internal class jnle: BaseModel
     {
-        public jnle(object? source, object? destination) :base("jnle", source, destination)
+        public jnle() :base("jnle")
         {
-            Comment = $"Jump if greater (signed)";
+            Comment = new Comment()
+            {
+                Start = "Jump if greater (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

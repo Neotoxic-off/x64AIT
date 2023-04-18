@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Shift
 {
     public class sar : BaseModel
     {
-        public sar(object? source, object? destination) :base("sar", source, destination)
+        public sar() :base("sar")
         {
-            Comment = $"Arithmetic right shift {Destination} by {Source} bits";
+            Comment = new Comment()
+            {
+                Start = "Arithmetic right shift",
+                Between = "by",
+                End = "bits",
+                Source = Destination?.ToString(),
+                Destination = Source?.ToString()
+            };
         }
     }
 }

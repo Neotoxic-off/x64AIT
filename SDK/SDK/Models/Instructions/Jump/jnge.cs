@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jnge : BaseModel
     {
-        public jnge(object? source, object? destination) :base("jnge", source, destination)
+        public jnge() :base("jnge")
         {
-            Comment = $"Jump if less (signed)";
+            Comment = new Comment()
+            {
+                Start = "Jump if less (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

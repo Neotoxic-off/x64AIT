@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setnge : BaseModel
     {
-        public setnge(object? source, object? destination) :base("setnge", source, destination)
+        public setnge() :base("setnge")
         {
-            Comment = $"Set if less (signed)";
+            Comment = new Comment()
+            {
+                Start = "Set if not greater or equal (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

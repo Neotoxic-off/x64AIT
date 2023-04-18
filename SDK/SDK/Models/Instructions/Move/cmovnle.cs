@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Move
 {
     public class cmovnle : BaseModel
     {
-        public cmovnle(object? source, object? destination) :base("cmovnle", source, destination)
+        public cmovnle() :base("cmovnle")
         {
-            Comment = $"Move if greater (signed)";
+            Comment = new Comment()
+            {
+                Start = "Move if greater (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

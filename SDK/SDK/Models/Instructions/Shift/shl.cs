@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Shift
 {
     public class shl : BaseModel
     {
-        public shl(object? source, object? destination) :base("shl", source, destination)
+        public shl() :base("shl")
         {
-            Comment = $"Left shift {Destination} by {Source} bits";
+            Comment = new Comment()
+            {
+                Start = "Logical left shift",
+                Between = "by",
+                End = "bits",
+                Source = Destination?.ToString(),
+                Destination = Source?.ToString()
+            };
         }
     }
 }

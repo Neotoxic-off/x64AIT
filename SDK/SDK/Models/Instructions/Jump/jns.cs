@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jns : BaseModel
     {
-        public jns(object? source, object? destination) :base("jns", source, destination)
+        public jns() :base("jns")
         {
-            Comment = $"Jump if nonnegative";
+            Comment = new Comment()
+            {
+                Start = "Jump if nonnegative",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

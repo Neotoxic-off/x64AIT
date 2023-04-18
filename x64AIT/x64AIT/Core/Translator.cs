@@ -53,24 +53,31 @@ namespace x64AIT.Core
         {
             string[]? currentLine = null;
             List<string>? cleanned = new List<string>();
+            UInt128 index = 0;
+            string? result = null;
 
             foreach (string line in Lines)
             {
                 if (line.StartsWith("//") == false)
                 {
                     currentLine = Separator(line);
-                    cleanned.Add(TranslateLine(currentLine));
+                    result = TranslateLine(currentLine, index);
+                    if (result != null)
+                    {
+                        cleanned.Add(result);
+                    }
                 }
                 else
                 {
                     cleanned.Add(line);
                 }
+                index++;
             }
 
             return (cleanned);
         }
 
-        public string TranslateLine(string[] instructions)
+        public string? TranslateLine(string[] instructions, UInt128 line)
         {
             Models.Architecture architecture = new Models.Architecture();
             List<string?> buffer = new List<string?>();
@@ -101,19 +108,18 @@ namespace x64AIT.Core
                             Report.Instructions++;
                         }
                     }
-                    buffer.Add(cleannedBlock);
                 }
                 
                 index++;
             }
             if (architecture.Instruction != null)
             {
-                
                 architecture.Instruction.Render();
-                buffer.Add($"; [x64AIT] {architecture.Instruction?.Comment}");
+                buffer.Add($"line:{line}: {architecture.Instruction?.Comment?.Render}");
             }
-
-            return (string.Join(" ", buffer));
+            if (buffer.Count() > 0)
+                return (string.Join(" ", buffer));
+            return (null);
         }
 
         public string[]? Separator(string line)

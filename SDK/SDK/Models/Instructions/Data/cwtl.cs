@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class cwtl: BaseModel
     {
-        public cwtl(object? source, object? destination) :base("cwtl", source, destination)
+        public cwtl() :base("cwtl")
         {
-            Comment = $"Convert word in %ax to doubleword in %eax (sign-extended)";
+            Comment = new Comment()
+            {
+                Start = "Convert word in %ax to doubleword in %eax (sign-extended)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

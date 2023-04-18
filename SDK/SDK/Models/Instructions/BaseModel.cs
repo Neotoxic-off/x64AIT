@@ -11,35 +11,25 @@ namespace SDK.Models.Instructions
 {
     public class BaseModel
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public object? Source { get; set; }
         public object? Destination { get; set; }
-        public string Comment { get; set; }
-        public static string PlaceHolderSource = "EMPTY_SOURCE";
-        public static string PlaceHolderDestination = "EMPTY_DESTINATION";
+        public Comment? Comment { get; set; }
 
-        public BaseModel(string Name, object? Source, object? Destination)
+        public BaseModel(string? Name)
         {
             this.Name = Name;
-            this.Source = Source;
-            this.Destination = Destination;
         }
 
         public void Render()
         {
-            List<(string placeholder, object? param)> items = new List<(string placeholder, object? param)>()
-            {
-                (PlaceHolderSource, Source),
-                (PlaceHolderDestination, Destination)
-            };
-
-            foreach ((string placeholder, object? param) item in items)
-            {
-                if (item.param != null)
-                {
-                    Comment = Comment.Replace(item.placeholder, $"{item.param}");
-                }
-            }
+            Comment.Render = string.Join(" ", new object?[] {
+                Comment?.Start,
+                Source,
+                Comment?.Between,
+                Destination,
+                Comment?.End
+            }.Where(s => !string.IsNullOrEmpty(s?.ToString())));
         }
 
         public BaseModel? Clone()

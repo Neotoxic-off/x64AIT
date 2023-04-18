@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Binary
 {
     public class sub : BaseModel
     {
-        public sub(object? source, object? destination) :base("sub", source, destination)
+        public sub() :base("sub")
         {
-            Comment = $"Subtract {Source} from {Destination}";
+            Comment = new Comment()
+            {
+                Start = "Subtract",
+                Between = "from",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

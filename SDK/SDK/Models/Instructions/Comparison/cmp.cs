@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Comparison
 {
     public class cmp : BaseModel
     {
-        public cmp(object? source, object? destination) :base("cmp", source, destination)
+        public cmp() :base("cmp")
         {
-            Comment = $"Set condition codes according to {Source} - {Destination}";
+            Comment = new Comment()
+            {
+                Start = "Set condition codes according to",
+                Between = "-",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

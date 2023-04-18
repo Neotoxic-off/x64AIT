@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Binary
 {
     public class imul : BaseModel
     {
-        public imul(object? source, object? destination) : base("imul", source, destination)
+        public imul() : base("imul")
         {
-            Comment = $"Multiply {Destination} by {Source}";
+            Comment = new Comment()
+            {
+                Start = "Multiply",
+                Between = "by",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

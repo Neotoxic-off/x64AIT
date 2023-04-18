@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setle : BaseModel
     {
-        public setle(object? source, object? destination) :base("setle", source, destination)
+        public setle() :base("setle")
         {
-            Comment = $"Set if less or equal";
+            Comment = new Comment()
+            {
+                Start = "Set if less or equal",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

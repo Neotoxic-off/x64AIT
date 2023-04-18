@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class cltq : BaseModel
     {
-        public cltq(object? source, object? destination) :base("cqto", source, destination)
+        public cltq() :base("cqto")
         {
-            Comment = $"Convert doubleword in %eax to quadword in %rax (sign-extended)";
+            Comment = new Comment()
+            {
+                Start = "Convert doubleword in %eax to quadword in %rax (sign-extended)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

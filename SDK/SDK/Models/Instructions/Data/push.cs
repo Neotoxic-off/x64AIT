@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class push: BaseModel
     {
-        public push(object? source, object? destination) : base("push", source, destination)
+        public push() : base("push")
         {
-            Comment = $"Push {source} onto stack";
+            Comment = new Comment()
+            {
+                Start = "Push",
+                Between = "",
+                End = "onto stack",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

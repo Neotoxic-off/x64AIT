@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Special
 {
     public class idivq : BaseModel
     {
-        public idivq(object? source, object? destination) :base("idivq", source, destination)
+        public idivq() :base("idivq")
         {
-            Comment = $"Signed divide %rdx:%rax by {Source}, quotient stored in %rax, remainder stored in %rdx";
+            Comment = new Comment()
+            {
+                Start = "Signed divide %rdx:%rax by",
+                Between = "",
+                End = ", quotient stored in %rax, remainder stored in %rdx",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

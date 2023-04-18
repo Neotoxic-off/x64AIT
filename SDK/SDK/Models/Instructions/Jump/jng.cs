@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jng : BaseModel
     {
-        public jng(object? source, object? destination) :base("jng", source, destination)
+        public jng() :base("jng")
         {
-            Comment = $"Jump if less or equal";
+            Comment = new Comment()
+            {
+                Start = "Jump if less or equal",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

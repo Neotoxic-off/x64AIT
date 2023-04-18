@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Move
 {
     public class cmovnz : BaseModel
     {
-        public cmovnz(object? source, object? destination) :base("cmovnz", source, destination)
+        public cmovnz() :base("cmovnz")
         {
-            Comment = $"Move if not equal/nonzero";
+            Comment = new Comment()
+            {
+                Start = "Move if not equal / nonzero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

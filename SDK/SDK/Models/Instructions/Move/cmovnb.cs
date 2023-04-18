@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Move
 {
     public class cmovnb : BaseModel
     {
-        public cmovnb(object? source, object? destination) :base("cmovnb", source, destination)
+        public cmovnb() :base("cmovnb")
         {
-            Comment = $"Move if above (unsigned)";
+            Comment = new Comment()
+            {
+                Start = "Move if above (unsigned)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

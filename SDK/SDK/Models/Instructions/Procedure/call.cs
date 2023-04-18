@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Procedure
 {
     public class call : BaseModel
     {
-        public call(object? source, object? destination) :base("call", source, destination)
+        public call() :base("call")
         {
-            Comment = $"Push return address and jump to label/specified location";
+            Comment = new Comment()
+            {
+                Start = "Push return address and jump to label / specified location",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

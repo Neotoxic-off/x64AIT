@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Special
 {
     public class imulq : BaseModel
     {
-        public imulq(object? source, object? destination) :base("imulq", source, destination)
+        public imulq() :base("imulq")
         {
-            Comment = $"Signed full multiply of %rax by {Source}, result stored in %rdx:%rax";
+            Comment = new Comment()
+            {
+                Start = "Signed full multiply of %rax by",
+                Between = "",
+                End = ", result stored in %rdx:%rax",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

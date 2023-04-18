@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Instructions.Binary
 {
-    public class leaq : BaseModel
+    public class lea : BaseModel
     {
-        public leaq(object? source, object? destination) :base("leaq", source, destination)
+        public lea() :base("lea")
         {
-            Comment = $"Load effective address of {Source} into {Destination}";
+            Comment = new Comment()
+            {
+                Start = "Load effective address of",
+                Between = "into",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

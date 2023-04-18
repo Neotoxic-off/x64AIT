@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Unary
 {
     public class dec : BaseModel
     {
-        public dec(object? source, object? destination) :base("dec", source, destination)
+        public dec() :base("dec")
         {
-            Comment = $"Decrement {Source} by 1";
+            Comment = new Comment()
+            {
+                Start = "Decrement",
+                Between = "",
+                End = "by 1",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

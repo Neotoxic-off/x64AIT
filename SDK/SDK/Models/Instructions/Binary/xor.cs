@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Binary
 {
     public class xor : BaseModel
     {
-        public xor(object? source, object? destination) :base("xor", source, destination)
+        public xor() :base("xor")
         {
-            Comment = $"Bitwise XOR {Destination} by {Source}";
+            Comment = new Comment()
+            {
+                Start = "Bitwise XOR",
+                Between = "by",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

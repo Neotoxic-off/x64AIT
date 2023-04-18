@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Unary
 {
     public class inc : BaseModel
     {
-        public inc(object? source, object? destination) :base("inc", source, destination)
+        public inc() :base("inc")
         {
-            Comment = $"Increment {Source} by 1";
+            Comment = new Comment()
+            {
+                Start = "Increment",
+                Between = "",
+                End = "by 1",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

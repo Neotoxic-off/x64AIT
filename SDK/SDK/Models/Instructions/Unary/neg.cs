@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Unary
 {
     public class neg : BaseModel
     {
-        public neg(object? source, object? destination) :base("neg", source, destination)
+        public neg() :base("neg")
         {
-            Comment = $"Arithmetic negation";
+            Comment = new Comment()
+            {
+                Start = "Arithmetic negation",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

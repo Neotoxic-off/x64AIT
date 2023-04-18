@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class mov: BaseModel
     {
-        public mov(object? source, object? destination) : base("mov", source, destination)
+        public mov() : base("mov")
         {
-            Comment = $"Move {source} to {destination}";
+            Comment = new Comment()
+            {
+                Start = "Move",
+                Between = "to",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

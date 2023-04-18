@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Special
 {
     public class divq : BaseModel
     {
-        public divq(object? source, object? destination) :base("divq", source, destination)
+        public divq() :base("divq")
         {
-            Comment = $"Unsigned divide %rdx:%rax by {Source}, quotient stored in %rax, remainder stored in %rdx";
+            Comment = new Comment()
+            {
+                Start = "Unsigned divide %rdx:%rax by",
+                Between = "",
+                End = ", quotient stored in %rax, remainder stored in %rdx",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

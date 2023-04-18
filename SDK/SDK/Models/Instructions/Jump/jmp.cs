@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jmp : BaseModel
     {
-        public jmp(object? source, object? destination) :base("jmp", source, destination)
+        public jmp() :base("jmp")
         {
-            Comment = $"Jump to label/specified location";
+            Comment = new Comment()
+            {
+                Start = "Jump to label / specified location",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

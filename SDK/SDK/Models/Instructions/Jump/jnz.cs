@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jnz : BaseModel
     {
-        public jnz(object? source, object? destination) :base("jnz", source, destination)
+        public jnz() :base("jnz")
         {
-            Comment = $"Jump if not equal/nonzero";
+            Comment = new Comment()
+            {
+                Start = "Jump if not equal/nonzero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

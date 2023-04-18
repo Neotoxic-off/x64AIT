@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class ja : BaseModel
     {
-        public ja(object? source, object? destination) :base("ja", source, destination)
+        public ja() :base("ja")
         {
-            Comment = $"Jump if above (unsigned)";
+            Comment = new Comment()
+            {
+                Start = "Jump if above (unsigned)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

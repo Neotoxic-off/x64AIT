@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setnle : BaseModel
     {
-        public setnle(object? source, object? destination) :base("setnle", source, destination)
+        public setnle() :base("setnle")
         {
-            Comment = $"Set if greater or equal (signed)";
+            Comment = new Comment()
+            {
+                Start = "Set if greater or equal (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

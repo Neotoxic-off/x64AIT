@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class js : BaseModel
     {
-        public js(object? source, object? destination) :base("js", source, destination)
+        public js() :base("js")
         {
-            Comment = $"Jump if negative";
+            Comment = new Comment()
+            {
+                Start = "Jump if negative",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

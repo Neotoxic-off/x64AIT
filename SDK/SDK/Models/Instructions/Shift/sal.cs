@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Shift
 {
     public class sal : BaseModel
     {
-        public sal(object? source, object? destination) : base("sal", source, destination)
+        public sal() : base("sal")
         {
-            Comment = $"Left shift {Destination} by {Source} bits";
+            Comment = new Comment()
+            {
+                Start = "Arithmetic left shift",
+                Between = "by",
+                End = "bits",
+                Source = Destination?.ToString(),
+                Destination = Source?.ToString()
+            };
         }
     }
 }

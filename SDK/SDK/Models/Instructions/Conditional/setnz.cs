@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setnz : BaseModel
     {
-        public setnz(object? source, object? destination) :base("setnz", source, destination)
+        public setnz() :base("setnz")
         {
-            Comment = $"Set if equal/zero";
+            Comment = new Comment()
+            {
+                Start = "Set if equal / zero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setg : BaseModel
     {
-        public setg(object? source, object? destination) :base("setg", source, destination)
+        public setg() :base("setg")
         {
-            Comment = $"Set if greater (signed)";
+            Comment = new Comment()
+            {
+                Start = "Set if greater (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

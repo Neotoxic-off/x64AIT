@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Move
 {
     public class cmovns : BaseModel
     {
-        public cmovns(object? source, object? destination) :base("cmovns", source, destination)
+        public cmovns() :base("cmovns")
         {
-            Comment = $"Move if nonnegative";
+            Comment = new Comment()
+            {
+                Start = "Move if nonnegative",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

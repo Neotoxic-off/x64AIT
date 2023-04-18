@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jnl : BaseModel
     {
-        public jnl(object? source, object? destination) :base("jnl", source, destination)
+        public jnl() :base("jnl")
         {
-            Comment = $"Jump if greater or equal (signed)";
+            Comment = new Comment()
+            {
+                Start = "Jump if greater or equal (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

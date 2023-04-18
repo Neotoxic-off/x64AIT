@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jnbe : BaseModel
     {
-        public jnbe(object? source, object? destination) :base("jnbe", source, destination)
+        public jnbe() :base("jnbe")
         {
-            Comment = $"Jump if above (unsigned)";
+            Comment = new Comment()
+            {
+                Start = "Jump if above (unsigned)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setns : BaseModel
     {
-        public setns(object? source, object? destination) :base("setns", source, destination)
+        public setns() :base("setns")
         {
-            Comment = $"Set if nonnegative";
+            Comment = new Comment()
+            {
+                Start = "Set if nonnegative",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

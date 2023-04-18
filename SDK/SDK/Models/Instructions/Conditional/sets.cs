@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class sets : BaseModel
     {
-        public sets(object? source, object? destination) :base("sets", source, destination)
+        public sets() :base("sets")
         {
-            Comment = $"Set if nonnegative";
+            Comment = new Comment()
+            {
+                Start = "Set if nonnegative",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

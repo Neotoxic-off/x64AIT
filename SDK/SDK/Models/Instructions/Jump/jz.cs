@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jz : BaseModel
     {
-        public jz(object? source, object? destination) :base("jz", source, destination)
+        public jz() :base("jz")
         {
-            Comment = $"Jump if equal/zero";
+            Comment = new Comment()
+            {
+                Start = "Jump if equal / zero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

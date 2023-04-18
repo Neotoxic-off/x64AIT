@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jl : BaseModel
     {
-        public jl(object? source, object? destination) :base("jl", source, destination)
+        public jl() :base("jl")
         {
-            Comment = $"Jump if less (signed)";
+            Comment = new Comment()
+            {
+                Start = "Jump if less (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

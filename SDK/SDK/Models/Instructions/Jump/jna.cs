@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jna : BaseModel
     {
-        public jna(object? source, object? destination) :base("jna", source, destination)
+        public jna() :base("jna")
         {
-            Comment = $"Jump if below or equal (unsigned)";
+            Comment = new Comment()
+            {
+                Start = "Jump if below or equal (unsigned)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

@@ -60,7 +60,7 @@ namespace x64AIT.Core
             {
                 registers.Add(new Models.Register()
                 {
-                    Value = "empty",
+                    Value = "__NOT_FOUND__",
                     Index = 0
                 });
             }

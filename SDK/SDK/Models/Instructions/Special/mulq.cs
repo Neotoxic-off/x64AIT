@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Special
 {
     public class mulq : BaseModel
     {
-        public mulq(object? source, object? destination) :base("mulq", source, destination)
+        public mulq() :base("mulq")
         {
-            Comment = $"Unsigned full multiply of %rax by {Source}, result stored in %rdx:%rax";
+            Comment = new Comment()
+            {
+                Start = "Unsigned full multiply of %rax by",
+                Between = "",
+                End = ", result stored in %rdx:%rax",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Binary
 {
     public class or : BaseModel
     {
-        public or(object? source, object? destination) :base("or", source, destination)
+        public or() :base("or")
         {
-            Comment = $"Bitwise OR {Destination} by {Source}";
+            Comment = new Comment()
+            {
+                Start = "Load effective address of",
+                Between = "into",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Jump
 {
     public class jge : BaseModel
     {
-        public jge(object? source, object? destination) :base("jge", source, destination)
+        public jge() :base("jge")
         {
-            Comment = $"Jump if greater or equal (signed)";
+            Comment = new Comment()
+            {
+                Start = "Jump if greater or equal (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

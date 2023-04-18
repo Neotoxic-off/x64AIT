@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Procedure
 {
     public class ret : BaseModel
     {
-        public ret(object? source, object? destination) :base("ret", source, destination)
+        public ret() :base("ret")
         {
-            Comment = $"Pop return address from stack and jump there";
+            Comment = new Comment()
+            {
+                Start = "Pop return address from stack and jump there",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

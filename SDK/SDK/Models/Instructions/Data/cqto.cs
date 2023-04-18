@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class cqto : BaseModel
     {
-        public cqto(object? source, object? destination) :base("cqto", source, destination)
+        public cqto() :base("cqto")
         {
-            Comment = $"Convert quadword in %rax to octoword in %rdx:%rax";
+            Comment = new Comment()
+            {
+                Start = "Convert quadword in %rax to octoword in %rdx:%rax",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

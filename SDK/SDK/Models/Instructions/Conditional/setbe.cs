@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setbe : BaseModel
     {
-        public setbe(object? source, object? destination) :base("setbe", source, destination)
+        public setbe() :base("setbe")
         {
-            Comment = $"Set if below or equal (unsigned)";
+            Comment = new Comment()
+            {
+                Start = "Set if below or equal (unsigned)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

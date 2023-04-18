@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setne : BaseModel
     {
-        public setne(object? source, object? destination) :base("setne", source, destination)
+        public setne() :base("setne")
         {
-            Comment = $"Set if not equal/nonzero";
+            Comment = new Comment()
+            {
+                Start = "Set if not equal / nonzero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

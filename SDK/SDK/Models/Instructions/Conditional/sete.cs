@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class sete : BaseModel
     {
-        public sete(object? source, object? destination) :base("sete", source, destination)
+        public sete() :base("sete")
         {
-            Comment = $"Set if equal/zero";
+            Comment = new Comment()
+            {
+                Start = "Set if equal / zero",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

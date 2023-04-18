@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Binary
 {
     public class add : BaseModel
     {
-        public add(object? source, object? destination) : base("add", source, destination)
+        public add() : base("add")
         {
-            Comment = $"Add {Source} to {Destination}";
+            Comment = new Comment()
+            {
+                Start = "Add",
+                Between = "to",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = Destination?.ToString()
+            };
         }
     }
 }

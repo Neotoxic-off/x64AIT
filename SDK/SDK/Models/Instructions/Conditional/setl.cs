@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Conditional
 {
     public class setl : BaseModel
     {
-        public setl(object? source, object? destination) :base("setl", source, destination)
+        public setl() :base("setl")
         {
-            Comment = $"Set if less (signed)";
+            Comment = new Comment()
+            {
+                Start = "Set if less (signed)",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }

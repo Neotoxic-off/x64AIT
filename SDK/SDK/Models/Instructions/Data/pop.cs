@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Data
 {
     public class pop: BaseModel
     {
-        public pop(object? source, object? destination) :base("pop", source, destination)
+        public pop() :base("pop")
         {
-            Comment = $"Pop top of stack into {source}";
+            Comment = new Comment()
+            {
+                Start = "Pop top of stack into",
+                Between = "",
+                End = "",
+                Source = Source?.ToString(),
+                Destination = ""
+            };
         }
     }
 }

@@ -8,9 +8,16 @@ namespace SDK.Models.Instructions.Unary
 {
     public class not : BaseModel
     {
-        public not(object? source, object? destination) :base("not", source, destination)
+        public not() :base("not")
         {
-            Comment = $"Bitwise complement";
+            Comment = new Comment()
+            {
+                Start = "Bitwise complement",
+                Between = "",
+                End = "",
+                Source = "",
+                Destination = ""
+            };
         }
     }
 }
