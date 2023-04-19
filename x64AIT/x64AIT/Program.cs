@@ -26,26 +26,23 @@ namespace x64AIT
         {
             if (ValidateParameters() == 1)
             {
-                Logger?.Log("action", $"loading file {Configuration?.Parameters?[0]}");
+                Logger?.Log("wait", $"loading file {Configuration?.Parameters?[0]}");
                 Translator?.Load(Configuration?.Parameters?[0]);
-                Logger?.Log("information", $"loading file {Configuration?.Parameters?[0]}");
-                Logger?.Log("action", $"translating");
+                Logger?.Log("done", $"file loaded");
+                Logger?.Log("wait", $"translating");
                 Result = Translator?.Translate();
-                Logger?.Log("item", new string[]
-                {
-                    $"Lines: {Translator?.Report?.Lines}",
-                    $"Instructions: {Translator?.Report?.Instructions}",
-                    $"Blocks: {Translator?.Report?.Blocks}",
-                });
-                Logger?.Log("information", $"translation complete");
-
-                Logger?.Log("action", $"saving");
+                Logger?.Log("done", $"translation complete");
+                Logger?.Log("information", $"translated: {Translator?.Report?.Instructions} intructions, {Translator?.Report?.Blocks} blocks");
+                Logger?.Log("wait", $"saving");
                 File.WriteAllLines($"{Configuration?.Parameters?[0]}.ait", Result);
-                Logger?.Log("actionSuccess", $"saved at {$"{Configuration?.Parameters?[0]}.ait"}");
+                Logger?.Log("done", $"saved at {$"{Configuration?.Parameters?[0]}.ait"}");
+                Logger?.Log("wait", $"saving logs");
+                Logger?.Save();
+                Logger?.Log("done", $"logs saved");
 
             } else
             {
-                Logger?.Log("actionFail", $"no file to translate");
+                Logger?.Log("fail", $"no file to translate");
             }
 
             Console.ReadKey();
@@ -77,7 +74,7 @@ namespace x64AIT
 
         private void LoadConfiguration(string[] args)
         {
-            Logger?.Log("action", "Configuration loading");
+            Logger?.Log("wait", "configuration loading");
 
             Configuration = new Settings.Configuration()
             {
@@ -89,30 +86,30 @@ namespace x64AIT
             Logger?.Log("item", new string[]
             {
                 $"OS: x{Configuration?.OS}",
-                $"Version: {Configuration?.Version}",
-                $"Parameters: {Configuration?.Parameters?.Count()}"
+                $"version: {Configuration?.Version}",
+                $"parameters: {Configuration?.Parameters?.Count()}"
             });
-            Logger?.Log("information", "Configuration loaded");
+            Logger?.Log("done", "configuration loaded");
         }
 
         private void LoadTranslator()
         {
-            Logger?.Log("action", $"Translator loading");
+            Logger?.Log("wait", $"translator loading");
             Translator = new Translator(Logger);
             Logger?.Log("item", new string[]
             {
                 $"Instructions: {Translator.TotalInstructions}",
                 $"Registers: {Translator.TotalRegisters}"
             });
-            Logger?.Log("information", "Translator loaded");
+            Logger?.Log("done", "translator loaded");
         }
 
         private void LoadConsole()
         {
-            Logger?.Log("action", $"Console loading");
+            Logger?.Log("wait", $"console loading");
             Console.Title = $"x64AIT {Configuration?.Version} x{Configuration?.OS}";
             Console.OutputEncoding = Encoding.UTF8;
-            Logger?.Log("information", $"Console loaded");
+            Logger?.Log("done", $"console loaded");
         }
     }
 }

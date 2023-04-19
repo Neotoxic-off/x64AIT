@@ -25,11 +25,12 @@ namespace x64AIT.Logger
             };
             LogTypes = new Dictionary<string, (string, ConsoleColor)>()
             {
-                { "action", (" ->", ConsoleColor.Cyan) },
-                { "information", ("==>", ConsoleColor.Yellow) },
-                { "actionSuccess", ("==>", ConsoleColor.Green) },
-                { "actionFail", ("==>", ConsoleColor.Red) },
-                { "item", ("    -", ConsoleColor.White) }
+                { "wait", ("WAIT", ConsoleColor.Cyan) },
+                { "information", ("INFO", ConsoleColor.Yellow) },
+                { "done", ("DONE", ConsoleColor.Green) },
+                { "warn", ("WARN", ConsoleColor.Magenta) },
+                { "fail", ("FAIL", ConsoleColor.Red) },
+                { "item", ("INFO", ConsoleColor.Yellow) }
             };
             Setup();
         }
@@ -46,9 +47,16 @@ namespace x64AIT.Logger
         {
             (string, ConsoleColor) results = LogTypes[type];
 
+            Console.Write("[ ");
             Console.ForegroundColor = results.Item2;
+            for (int i = 0; i < results.Item1.Length; i++)
+            {
+                Console.Write(results.Item1[i]);
+            }
+            Console.ResetColor();
+            Console.Write(" ]");
 
-            return ($"{results.Item1} {message}");
+            return ($" {message}");
         }
 
         public void Log(string type, string message)
@@ -73,7 +81,6 @@ namespace x64AIT.Logger
         {
             Records.Add($"[{DateTime.Now.ToString("hh:mm:ss")}] {message}");
             Console.WriteLine(message);
-            Console.ForegroundColor = ConsoleColor.White;
 
             if (Records.Count % Records.Capacity == 0)
             {
