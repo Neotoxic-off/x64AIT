@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDK.Models.Directives
 {
-    public class double : BaseModel
+    public class double_ : BaseModel
     {
-        public double() : base(".double")
+        public double_() : base(".double")
         {
             this.Comment = "The .double directive generates a double-precision floating-point constant into the current section. The .double directive is not valid for the .bss section.";
         }
