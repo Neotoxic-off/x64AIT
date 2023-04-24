@@ -21,7 +21,7 @@
 <p align="center">
     Currently the project is an external tool where user drags and drop the assembly
     file to x64AIT
-    It produces a `.ait` file where the translation is saved
+    It produces a .ait file where the translation is saved
 </p>
 
 ### 1. Implemented
