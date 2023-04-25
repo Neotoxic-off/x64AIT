@@ -87,6 +87,7 @@ namespace x64AIT.Core
             int index = 0;
             bool comment = false;
             List<Register?> registers = Registers.Search(instructions);
+            Models.Directive? directive = Directives.Search(instructions);
 
             Report.Blocks += instructions.Length;
 
@@ -111,6 +112,9 @@ namespace x64AIT.Core
                 }
                 
                 index++;
+            }
+            if (directive.State == Directive.States.Valid) {
+                buffer.Add($"line:{line}: {directive.Comment}");
             }
             if (architecture.Instruction != null)
             {

@@ -13,10 +13,12 @@ namespace SDK.Models.Directives
     {
         public string? Name { get; set; }
         public string? Comment { get; set; }
+        public List<object?> Parameters { get; set; }
 
         public BaseModel(string? Name)
         {
             this.Name = Name;
+            this.Parameters = new List<object?>();
         }
     }
 }
