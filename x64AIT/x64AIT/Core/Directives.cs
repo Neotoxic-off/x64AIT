@@ -7,7 +7,7 @@ namespace x64AIT.Core
         public static Models.Directive? Search(string[] instructions)
         {
             Models.Directive? Directive = null;
-            SDK.Models.Directives.Directives.BaseModel Model = null;
+            SDK.Models.Directives.BaseModel Model = null;
 
             if (instructions.Count() > 0) {
                 if (SDK.Models.Directives.Directives.IsValidDirective(instructions[0]) == true)
